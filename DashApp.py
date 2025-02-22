@@ -7,6 +7,7 @@ import share
 import trend
 import sentiment
 import about
+import comp_int
 from MLProject import layout as MLproject
 from ApplicationDevelopmentProject import app as ApplicationDevelopmentProject
 
@@ -40,6 +41,14 @@ app.layout = html.Div([
             'color': '#FFF'
         }),
         dcc.Link('Machine Learning Project', href='/MLProject', style={
+            'marginRight': '10px',
+            'padding': '10px',
+            'backgroundColor': '#3C3C3C',
+            'border': '1px solid #FFF',
+            'textDecoration': 'none',
+            'color': '#FFF'
+        }),
+        dcc.Link('Computational Intelligence', href='/CompInt', style={
             'marginRight': '10px',
             'padding': '10px',
             'backgroundColor': '#3C3C3C',
@@ -121,6 +130,8 @@ def display_page(pathname):
         return sentiment.layout
     elif pathname == '/MLProject':
         return MLproject
+    elif pathname == '/CompInt':
+        return comp_int.layout
     elif pathname == '/about':
         return about.layout
     else:
