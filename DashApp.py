@@ -8,6 +8,8 @@ import trend
 import sentiment
 import about
 import comp_int
+import prob_rea
+import feedback
 from MLProject import layout as MLproject
 from ApplicationDevelopmentProject import app as ApplicationDevelopmentProject
 
@@ -19,7 +21,7 @@ app.layout = html.Div([
         html.Br(),
         html.H1("UnMashable", style={'textAlign': 'center', 'fontSize': '70px', 'marginBottom': '5px', 'color': '#FFF'}),
         html.P("A Data Analysis Mash-tape!", style={'textAlign': 'center', 'fontSize': '40px', 'marginTop': '10px', 'marginBottom': '5px', 'color': '#FFF'}),
-        html.P("Unraveling news articles, one byte at a time!", style={'textAlign': 'center', 'fontSize': '40px', 'marginTop': '10px', 'color': '#FFF'}),
+        # html.P("Unraveling news articles, one byte at a time!", style={'textAlign': 'center', 'fontSize': '40px', 'marginTop': '10px', 'color': '#FFF'}),
         html.Hr(style={'width': '100%'}),
     ]),
     html.Br(),
@@ -55,6 +57,22 @@ app.layout = html.Div([
             'border': '1px solid #FFF',
             'textDecoration': 'none',
             'color': '#FFF'
+        }),
+        dcc.Link('Probabilistic Reasoning', href='/ProbReasoning', style={
+        'marginRight': '10px',
+        'padding': '10px',
+        'backgroundColor': '#3C3C3C',
+        'border': '1px solid #FFF',
+        'textDecoration': 'none',
+        'color': '#FFF'
+        }),
+        dcc.Link('Feedback', href='/feedback', style={  # Add this new link
+        'marginRight': '10px',
+        'padding': '10px',
+        'backgroundColor': '#3C3C3C',
+        'border': '1px solid #FFF',
+        'textDecoration': 'none',
+        'color': '#FFF'
         }),
         dcc.Link('About', href='/about', style={
             'padding': '10px',
@@ -132,6 +150,10 @@ def display_page(pathname):
         return MLproject
     elif pathname == '/CompInt':
         return comp_int.layout
+    elif pathname == '/ProbReasoning':
+        return prob_rea.layout
+    elif pathname == '/feedback':
+        return feedback.layout
     elif pathname == '/about':
         return about.layout
     else:
