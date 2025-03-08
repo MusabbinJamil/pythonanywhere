@@ -159,7 +159,6 @@ def genetic_algorithm(fitness_func, chromosome_length=20, pop_size=50,
             generation_bests.append(best_fit)
             
             # Elitism - keep best individuals
-            # Elitism - keep best individuals
             elite_indices = sorted(range(len(fitnesses)), key=lambda i: fitnesses[i])[:elite_size]
             elite = [population[i].copy() for i in elite_indices]
             
