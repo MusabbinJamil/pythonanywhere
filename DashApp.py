@@ -159,10 +159,5 @@ def display_page(pathname):
     else:
         return home.layout
 
-<<<<<<< HEAD
-# if __name__ == '__main__':
-#     app.run_server(debug=True)
-=======
 if __name__ == '__main__':
     app.run_server(debug=True)
->>>>>>> master

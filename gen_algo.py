@@ -159,18 +159,20 @@ def genetic_algorithm(fitness_func, chromosome_length=20, pop_size=50,
             generation_bests.append(best_fit)
             
             # Elitism - keep best individuals
+            # Elitism - keep best individuals
             elite_indices = sorted(range(len(fitnesses)), key=lambda i: fitnesses[i])[:elite_size]
             elite = [population[i].copy() for i in elite_indices]
             
-            # Create new population
+            # Create new population starting with elite
             new_pop = []
-            
-            # Add elite to new population
             new_pop.extend(elite)
+            
+            # Calculate how many children we need
+            children_needed = pop_size - len(new_pop)
             
             # Fill rest of population with crossover and mutation
             while len(new_pop) < pop_size:
-                # Selection
+                # Selection (parents still selected from current generation)
                 parent1 = selection(population, fitnesses, selection_method)
                 parent2 = selection(population, fitnesses, selection_method)
                 
@@ -181,10 +183,14 @@ def genetic_algorithm(fitness_func, chromosome_length=20, pop_size=50,
                 child1 = mutate(child1, mutation_method)
                 child2 = mutate(child2, mutation_method)
                 
-                new_pop.extend([child1, child2])
+                # Add only as many children as needed
+                if len(new_pop) < pop_size:
+                    new_pop.append(child1)
+                if len(new_pop) < pop_size:
+                    new_pop.append(child2)
             
-            # Trim if needed
-            population = new_pop[:pop_size]
+            # Replace old population with new one
+            population = new_pop
         
         run_data.append(generation_bests)
     
