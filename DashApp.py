@@ -8,7 +8,7 @@ import trend
 import sentiment
 import about
 import comp_int
-import prob_rea
+# import prob_rea
 import feedback
 from MLProject import layout as MLproject
 from ApplicationDevelopmentProject import app as ApplicationDevelopmentProject
