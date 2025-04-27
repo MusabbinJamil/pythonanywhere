@@ -22,7 +22,10 @@ def get_file_content(filename):
 code_samples = {
     'evo_algo': get_file_content('evo_algo.py'),
     'gen_algo': get_file_content('gen_algo.py'),
-    'prob_rea': get_file_content('prob_rea.py')
+    'prob_rea': get_file_content('prob_rea.py'),
+    'diff_evo': get_file_content('diff_evo.py'),
+    'ant_colony': get_file_content('ant_colony.py'),
+    'par_swarm': get_file_content('par_swarm.py'),
 }
 
 # Function to save feedback to a text file
@@ -92,7 +95,10 @@ layout = html.Div([
             options=[
                 {'label': 'Evolutionary Algorithm', 'value': 'evo_algo'},
                 {'label': 'Genetic Algorithm', 'value': 'gen_algo'},
-                {'label': 'Probabilistic Reasoning', 'value': 'prob_rea'}
+                {'label': 'Probabilistic Reasoning', 'value': 'prob_rea'},
+                {'label': 'Differential Evolution', 'value': 'diff_evo'},
+                {'label': 'Ant Colony Optimization', 'value': 'ant_colony'},
+                {'label': 'Particle Swarm Optimization', 'value': 'par_swarm'}
             ],
             value='evo_algo',
             style={'color': 'black', 'marginBottom': '15px'}
